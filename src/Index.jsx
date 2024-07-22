@@ -20,6 +20,7 @@ const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -37,6 +38,10 @@ const Dashboard = () => {
     }
   };
 
+  const toggleSidebars = () => {
+    setIsSidebarVisible(!isSidebarVisible);
+  };
+
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
@@ -46,6 +51,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex flex-col lg:flex-row h-screen overflow-y-auto">
+
       {/* Barra de navegación en la parte izquierda */}
       <div className={`w-full lg:w-1/6 bg-gray-900 text-white overflow-y-auto transition-all duration-300 ease-in-out transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
         <div className="p-4">
@@ -68,9 +74,7 @@ const Dashboard = () => {
           className={`bg-gray-900 text-white p-2 rounded-md ${sidebarOpen ? 'hidden' : ''}`}
           onClick={toggleSidebar}
         >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-          </svg>
+          <svg class="h-8 w-8 text-white-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <line x1="3" y1="12" x2="21" y2="12" />  <line x1="3" y1="6" x2="21" y2="6" />  <line x1="3" y1="18" x2="21" y2="18" /></svg>
         </button>
       </div>
 
@@ -78,6 +82,9 @@ const Dashboard = () => {
       <div className="w-full lg:w-5/6 flex flex-col">
         {/* Barra en la parte superior derecha */}
         <div className="bg-gray-900 text-white p-4 flex justify-between items-center">
+          <div>
+            <svg class="h-8 w-8 text-white-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <line x1="3" y1="12" x2="21" y2="12" />  <line x1="3" y1="6" x2="21" y2="6" />  <line x1="3" y1="18" x2="21" y2="18" /></svg>
+          </div>
           <div>
             <h1 className="text-lg lg:text-2xl font-semibold">Bienvenido</h1>
             <p className="text-sm lg:text-base">{currentDateTime.toLocaleString()}</p>

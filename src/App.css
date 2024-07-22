@@ -344,3 +344,30 @@
 
 /*-------- Boton----------*/
 
+.page-header {
+  height: 80px;
+}
+.page-main {
+  display: flex;
+  height: 100%
+}
+
+.page-nav {
+  max-width: 300px;
+  min-height: calc(100vh - 80px);
+}
+
+.page-section {
+  background: #CECECE;
+}
+
+@media (max-width: 576px) {
+  .saludo-hora {
+    display: none;
+  }
+  .page-nav {
+    position: absolute;
+    z-index: 10;
+  }
+
+}

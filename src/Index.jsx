@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React, { useState, useEffect, useMemo } from 'react';
 import DashboardTab from './components/Dashboard';
 import PerfilTab from './components/Perfil';
@@ -109,4 +107,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard;
->>>>>>> e155051d4d2c9be691663f3d23bbda08d32831aa

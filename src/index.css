@@ -1,5 +1,22 @@
+/* profile.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+  margin: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
 body {
+  background-color: #000; /* Color de fondo del body */
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,3 +28,61 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.card {
+  width: 80%;
+  height: 500px;
+  background: #07182E;
+  position: relative;
+  display: flex;
+  place-content: center;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: auto; /* Centra horizontalmente */
+  top: 50%; /* Centra verticalmente */
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.card h2 {
+  z-index: 1;
+  color: white;
+  font-size: 2em;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+  height: 130%;
+  animation: rotBGimg 3s linear infinite;
+  transition: all 0.2s linear;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  background-image: url('./img/Fotos.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 97%;
+  height: 490px;
+  inset: 5px;
+  border-radius: 15px;
+}
+
+
+

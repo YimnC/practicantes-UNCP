@@ -86,7 +86,7 @@ const Dashboard = () => {
             <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gray-300 flex items-center justify-center overflow-hidden">
               <img src={profileImage} alt="Perfil" className="w-full h-full object-cover" />
             </div>
-            <span className="ml-3 text-sm lg:text-base">Jim Ramos H.</span>
+            <div className="ml-3 text-sm lg:text-base">johnson aquino</div>
           </div>
         </div>
 

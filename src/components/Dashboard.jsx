@@ -116,32 +116,35 @@ function Dashboard() {
       </div>
 
       {/* Table */}
-      <div className="col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-4 bg-white p-4 rounded-lg shadow-md overflow-x-auto">
-        <table className="min-w-full table-auto">
-          <thead>
-            <tr>
-              <th className="px-2 py-1 border border-gray-400">Hora</th>
-              {diasDeLaSemana.map((dia, index) => (
-                <th key={index} className="px-2 py-1 border border-gray-400">{dia}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {horasDelDia.map((hora, index) => (
-              <tr key={index} className="border hover:bg-gray-100">
-                <td className="border border-gray-400 px-2 py-1">{hora}</td>
-                {Array.from({ length: 7 }).map((_, dayIndex) => (
-                  <td key={dayIndex} className="border border-gray-400 px-2 py-1 relative">
-                    {currentDay === dayIndex && currentHour === parseInt(hora) && (
-                      <div className="h-0.5 bg-red-500 absolute bottom-0 left-0 right-0" style={{ top: `${(currentMinute / 60) * 100}%` }} />
-                    )}
-                  </td>
-                ))}
-              </tr>
+      <div className="col-start-1 row-span-2 sm:col-span-2 md:col-span-2 lg:col-span-4 bg-white p-4 rounded-lg shadow-md">
+  <div className="overflow-x-auto overflow-y-auto max-h-80"> 
+    <table className="min-w-full table-auto">
+      <thead>
+        <tr>
+          <th className="px-2 py-1 border border-gray-400">Hora</th>
+          {diasDeLaSemana.map((dia, index) => (
+            <th key={index} className="px-2 py-1 border border-gray-400">{dia}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {horasDelDia.map((hora, index) => (
+          <tr key={index} className="border hover:bg-gray-100">
+            <td className="border border-gray-400 px-2 py-1">{hora}</td>
+            {Array.from({ length: 7 }).map((_, dayIndex) => (
+              <td key={dayIndex} className="border border-gray-400 px-2 py-1 relative">
+                {currentDay === dayIndex && currentHour === parseInt(hora) && (
+                  <div className="h-0.5 bg-red-500 absolute bottom-0 left-0 right-0" style={{ top: `${(currentMinute / 60) * 100}%` }} />
+                )}
+              </td>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
     </div>
   );
 }

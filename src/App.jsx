@@ -6,8 +6,8 @@ import Home from './Page.jsx';
 function App() {
   return (
     <div className="App">
-      <Index /> {}
-      {/* <Home />{} */}
+        {/* <Index /> {} */}
+     <Home />{} 
     </div>
   );
 }

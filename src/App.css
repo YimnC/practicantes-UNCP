@@ -230,7 +230,8 @@
   letter-spacing: 0.1rem;
 }
 
-/*--------Registro estilos----------*/
+/*--------Registro css----------*/
+/* Estilo del contenedor del input */
 .input__container {
   position: relative;
   background: #f0f0f0;
@@ -240,7 +241,7 @@
   align-items: center;
   gap: 15px;
   border: 4px solid #000;
-  max-width: 350px;
+  max-width: 100%;
   transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
   transform-style: preserve-3d;
   transform: rotateX(10deg) rotateY(-10deg);
@@ -248,11 +249,13 @@
   box-shadow: 10px 10px 0 #000;
 }
 
+/* Efecto al pasar el ratón por encima del contenedor del input */
 .input__container:hover {
-  transform: rotateX(5deg) rotateY(1 deg) scale(1.05);
+  transform: rotateX(5deg) rotateY(1deg) scale(1.05);
   box-shadow: 25px 25px 0 -5px #396941, 25px 25px 0 0 #000;
 }
 
+/* Sombra del input */
 .shadow__input {
   content: "";
   position: absolute;
@@ -270,6 +273,7 @@
   filter: blur(20px);
 }
 
+/* Estilo del botón */
 .input__button__shadow {
   cursor: pointer;
   border: 3px solid #000;
@@ -286,18 +290,21 @@
   text-transform: uppercase;
 }
 
+/* Efecto al pasar el ratón por encima del botón */
 .input__button__shadow:hover {
   background: #396941;
   transform: translateZ(10px) translateX(-5px) translateY(-5px);
   box-shadow: 5px 5px 0 0 #000;
 }
 
+/* Estilo del SVG dentro del botón */
 .input__button__shadow svg {
   fill: #000;
   width: 25px;
   height: 25px;
 }
 
+/* Estilo del input de búsqueda */
 .input__search {
   width: 100%;
   outline: none;
@@ -314,12 +321,14 @@
   letter-spacing: -0.5px;
 }
 
+/* Estilo del placeholder del input */
 .input__search::placeholder {
   color: #666;
   font-weight: bold;
   text-transform: uppercase;
 }
 
+/* Efectos al pasar el ratón por encima o al enfocarse en el input */
 .input__search:hover,
 .input__search:focus {
   background: #f0f0f0;
@@ -327,6 +336,7 @@
   box-shadow: 5px 5px 0 0 #ffffff;
 }
 
+/* Estilo del texto sobre el input */
 .input__container::before {
   content: "Ingrese DNI";
   position: absolute;
@@ -340,6 +350,51 @@
   transform: translateZ(50px);
   z-index: 4;
   border: 2px solid #000;
+}
+
+/* Media Queries para hacer el diseño responsivo */
+@media (max-width: 768px) {
+  .input__container {
+    max-width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input__search {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .input__button__shadow {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .input__container::before {
+    font-size: 12px;
+    top: -10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .input__container {
+    padding: 15px;
+  }
+
+  .input__search {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .input__button__shadow {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .input__container::before {
+    font-size: 10px;
+    top: -5px;
+  }
 }
 
 /*-------- Boton----------*/
@@ -371,3 +426,4 @@
   }
 
 }
+

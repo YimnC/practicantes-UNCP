@@ -98,7 +98,7 @@ const Dashboard = () => {
         </div>
 
         {/* Contenido principal */}
-        <div className="flex flex-col flex-1 bg-gray-200 p-4 lg:p-8 overflow-y-auto">
+        <div className="flex flex-col flex-1 bg-gray-200 p-4 lg:p-8 overflow-y-auto h-full">
           <TabComponent />
         </div>
       </div>

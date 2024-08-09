@@ -33,8 +33,8 @@ const Dashboard = () => {
   const changeTab = (tab) => {
     setActiveTab(tab);
     // Cerrar automáticamente la barra lateral en dispositivos móviles después de seleccionar un tab
-    if (!sidebarOpen) {
-      setSidebarOpen(true);
+    if (!sidebarOpen && !isSidebarVisible) {
+      setIsSidebarVisible(true);
     }
   };
 
@@ -51,40 +51,25 @@ const Dashboard = () => {
 
   return (
     <div className='grid-layout'>
-        <header className='page-header'>
-          <div className="bg-gray-900 text-white p-4 flex justify-between items-center">
-            <div>
-              <button onClick={toggleSidebars} className="toggle-button">
-                <svg class="h-8 w-8 text-white-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <line x1="3" y1="12" x2="21" y2="12" />  <line x1="3" y1="6" x2="21" y2="6" />  <line x1="3" y1="18" x2="21" y2="18" /></svg>
-              </button>
-             
-            </div>
-            <div className='saludo-hora'>
-              <h1 className="text-lg lg:text-2xl font-semibold">Bienvenido</h1>
-              <p className="text-sm lg:text-base">{currentDateTime.toLocaleString()}</p>
-            </div>
-            <div className="flex items-center">
-              <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gray-300 flex items-center justify-center overflow-hidden">
-                <img src={profileImage} alt="Perfil" className="w-full h-full object-cover" />
-              </div>
-              <span className="ml-3 text-sm lg:text-base">Jim Ramos Huaman</span>
-            </div>
+      {/* Encabezado */}
+      <header className='page-header'>
+        <div className="bg-gray-900 text-white p-4 flex justify-between items-center">
+          <div>
+            <button onClick={toggleSidebars} className="toggle-button">
+              <svg className="h-8 w-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+            </button>
           </div>
-        </header>
-        
-        <main className='page-main bg-gray-900'>
-          <nav className={`sidebar page-nav w-full bg-gray-900 text-white ${isSidebarVisible ? 'visible' : 'hidden'}`}>
-            <div className={`w-full bg-gray-900 text-white`}>
-                <div className="w-full p-4 flex justify-center items-center">
-                  <img src={logoImage} alt="Logo" className="w-auto h-auto max-w-full max-h-25 m-6" />
-                </div>
-                  {tabs.map(tab => (
-                  <div key={tab.id} className={`relative cursor-pointer py-2 px-4 rounded-lg hover:bg-gray-600 flex items-center ${activeTab === tab.id ? 'bg-gray-700' : ''}`} onClick={() => changeTab(tab.id)}>
-                    <tab.icon className="w-8 h-8 mr-5" />
-                    <span className={`text-lg lg:text-2xl font-thin ${!sidebarOpen ? 'hidden lg:block' : ''}`}>{tab.label}</span>
-                    {activeTab === tab.id && <div className="absolute left-0 top-0 h-full w-1 bg-white"></div>}
-                  </div>
-                ))}
+          <div className='saludo-hora'>
+            <h1 className="text-lg lg:text-2xl font-semibold">Bienvenido</h1>
+            <p className="text-sm lg:text-base">{currentDateTime.toLocaleString()}</p>
+          </div>
+          <div className="flex items-center">
+            <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gray-300 flex items-center justify-center overflow-hidden">
+              <img src={profileImage} alt="Perfil" className="w-full h-full object-cover" />
             </div>
           </nav>
 
@@ -94,10 +79,17 @@ const Dashboard = () => {
               <div className="p-8 w-full">
                 <TabComponent />
               </div>
+            ))}
+          </div>
+        </nav>
 
-          </section>
-
-        </main>
+        <section className='page-section w-full'>
+          {/* Contenido principal */}
+          <div className="main-component p-8 w-full">
+            <TabComponent />
+          </div>
+        </section>
+      </main>
     </div>
   );
 }

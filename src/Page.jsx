@@ -71,13 +71,23 @@ const Dashboard = () => {
             <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gray-300 flex items-center justify-center overflow-hidden">
               <img src={profileImage} alt="Perfil" className="w-full h-full object-cover" />
             </div>
-          </nav>
-
-          <section className='page-section w-full w'>
-
-              {/* Contenido principal */}
-              <div className="p-8 w-full">
-                <TabComponent />
+            <span className="ml-3 text-sm lg:text-base">Yimn Ramos Huaman</span>
+          </div>
+        </div>
+      </header>
+      
+      {/* Contenido principal */}
+      <main className='page-main bg-gray-900'>
+        <nav className={`sidebar page-nav w-full bg-gray-900 text-white ${isSidebarVisible ? 'visible' : 'hidden'}`}>
+          <div className={`w-full bg-gray-900 text-white`}>
+            <div className="w-full p-4 flex justify-center items-center">
+              <img src={logoImage} alt="Logo" className="w-auto h-auto max-w-full max-h-25 m-6" />
+            </div>
+            {tabs.map(tab => (
+              <div key={tab.id} className={`relative cursor-pointer py-2 px-4 rounded-lg hover:bg-gray-600 flex items-center ${activeTab === tab.id ? 'bg-gray-700' : ''}`} onClick={() => changeTab(tab.id)}>
+                <tab.icon className="w-8 h-8 mr-5" />
+                <span className={`text-lg lg:text-2xl font-thin ${!sidebarOpen ? 'hidden lg:block' : ''}`}>{tab.label}</span>
+                {activeTab === tab.id && <div className="absolute left-0 top-0 h-full w-1 bg-white"></div>}
               </div>
             ))}
           </div>

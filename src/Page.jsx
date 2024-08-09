@@ -88,7 +88,7 @@ const Dashboard = () => {
             </div>
           </nav>
 
-          <section className='page-section w-full'>
+          <section className='page-section w-full w'>
 
               {/* Contenido principal */}
               <div className="p-8 w-full">
